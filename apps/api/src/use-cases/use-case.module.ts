@@ -16,7 +16,7 @@ export class UseCaseModule {
             name: "AUDIT_SERVICE",
             transport: Transport.RMQ,
             options: {
-              urls: ["amqp://localhost:5672"],
+              urls: ["amqp://guest:guest@rabbitmq:5672"],
               queue: "audit_log",
               queueOptions: {
                 durable: false,
