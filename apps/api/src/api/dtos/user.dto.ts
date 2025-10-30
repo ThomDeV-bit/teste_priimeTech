@@ -11,13 +11,14 @@ export class UserDto {
 
   @ApiProperty({
     description: "E-mail do usuário",
+    example: "thomaaz@gmail.com",
     type: String,
   })
   @IsEmail()
   email: string;
 
   @ApiProperty({
-    description: "E-mail do usuário",
+    description: "Senha do usuário",
     type: String,
   })
   @Length(5, 50)
