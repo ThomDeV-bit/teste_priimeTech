@@ -2,6 +2,7 @@ import { DynamicModule, Module } from "@nestjs/common";
 import { UserUsecase } from "./user/user.use-case";
 import { AuthUsecase } from "./auth/auth.use-case";
 import { ClientsModule, Transport } from "@nestjs/microservices";
+import { AuditLogUsecase } from "./audit/audit-log.use-case";
 
 @Module({})
 export class UseCaseModule {
@@ -24,8 +25,8 @@ export class UseCaseModule {
         ]),
       ],
       global: true,
-      providers: [UserUsecase, AuthUsecase],
-      exports: [UserUsecase, AuthUsecase],
+      providers: [UserUsecase, AuthUsecase, AuditLogUsecase],
+      exports: [UserUsecase, AuthUsecase, AuditLogUsecase],
     };
   }
 }
