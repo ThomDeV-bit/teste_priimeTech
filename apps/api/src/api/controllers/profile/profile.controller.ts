@@ -18,9 +18,9 @@ export class ProfileController {
     try {
       await this.profileUsecase.create(profile);
 
-      this.logger.info(`Perfil ${profile} criado com sucesso`);
+      this.logger.info(`Perfil ${profile.role} criado com sucesso`);
 
-      return {message : `Perfil ${profile} criado com sucesso`};
+      return {message : `Perfil ${profile.role} criado com sucesso`};
     } catch (error) {
       this.logger.error(`${error?.message}`);
       throw error;
