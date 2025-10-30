@@ -53,9 +53,9 @@ export class UserRepository {
         email: true,
         name: true,
         createdAt: true,
-        updatedAt : true,
-        deletedAt : true,
-        profile: true
+        updatedAt: true,
+        deletedAt: true,
+        profile: true,
       },
     });
   }
