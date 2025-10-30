@@ -4,7 +4,6 @@ import { UserDto } from "../../api/dtos/user.dto";
 import { UserEntity } from "../../domain/entities/user.entity";
 import type { IUserRepository } from "../../domain/interfaces/IUserRepository.interface";
 import { REPOSITORIES_TOKEN } from "../../infrastructure/database/repositories/repositories-tokens";
-import { ClientProxy } from "@nestjs/microservices";
 
 @Injectable()
 export class UserUsecase {
