@@ -51,7 +51,7 @@ obs : caso aconteça o seguinte erro ao rodar os testes pela primeira vez, rode 
 ### 3️⃣ Acessando a aplicação
 
 * A aplicação ficará disponível em: `http://localhost:3000`
-* Se você estiver usando Swagger, geralmente em: `http://localhost:3000/api`
+* Se você estiver usando Swagger, geralmente em: `http://localhost:3000/api/swagger`
 
 ---
 
