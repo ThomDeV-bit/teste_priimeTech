@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { REPOSITORIES_TOKEN } from "../../infrastructure/database/repositories/repositories-tokens";
-import type { IAuditRepository } from "../../domain/interfaces/IAuditRepository";
+import type { IAuditRepository } from "../../domain/interfaces/IAuditRepository.interface";
 
 @Injectable()
 export class AuditLogUsecase {
