@@ -1,8 +1,10 @@
 import { ConfigurableModuleBuilder, Type } from "@nestjs/common";
+import { IAuditRepository } from "apps/api/src/domain/interfaces/IAuditRepository";
 import { IUserRepository } from "apps/api/src/domain/interfaces/IUserRepository.interface";
 
 export interface ModuleOptions {
     userRepository: Type<IUserRepository>;
+    auditRepository: Type<IAuditRepository>
 }
 
 export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN, OPTIONS_TYPE } =
