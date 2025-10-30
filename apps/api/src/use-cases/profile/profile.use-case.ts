@@ -16,4 +16,9 @@ export class ProfileUsecase {
     async create(profile: ProfileDTO) {
         return await this.profileRepository.create(profile)
     }
+
+
+    async getProfiles() {
+        return await this.profileRepository.getProfile()
+    }
 }

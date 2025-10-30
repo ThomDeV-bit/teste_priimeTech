@@ -25,4 +25,8 @@ export class ProfileRepository {
       throw new Error(error);
     }
   }
+
+  async getProfile(): Promise<ProfileEntity[]>{
+    return await this.profileEntity.find()
+  }
 }

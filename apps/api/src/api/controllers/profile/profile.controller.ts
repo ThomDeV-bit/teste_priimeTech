@@ -26,4 +26,11 @@ export class ProfileController {
       throw error;
     }
   }
+
+
+  @Get()
+  @ApiProperty()
+  async getProfiles(){
+    return await this.profileUsecase.getProfiles()
+  }
 }
