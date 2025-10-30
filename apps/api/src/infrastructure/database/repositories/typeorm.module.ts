@@ -29,6 +29,7 @@ export class TypeormModule {
       exports: [
         REPOSITORIES_TOKEN.USER_REPOSITORY_TOKEN,
         REPOSITORIES_TOKEN.AUDIT_REPOSITORY_TOKEN,
+        REPOSITORIES_TOKEN.PROFILE_REPOSITORY_TOKEN,
       ],
       providers: [
         {
@@ -38,6 +39,10 @@ export class TypeormModule {
         {
           provide: REPOSITORIES_TOKEN.AUDIT_REPOSITORY_TOKEN,
           useClass: options.auditRepository,
+        },
+        {
+          provide: REPOSITORIES_TOKEN.PROFILE_REPOSITORY_TOKEN,
+          useClass: options.profileRepository,
         },
       ],
     };
