@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, Length } from "class-validator";
+import { IsEmail, IsNumber, Length } from "class-validator";
 
 export class UserDto {
   @ApiProperty({
@@ -28,5 +28,6 @@ export class UserDto {
     example: "1",
     type: Number,
   })
+  @IsNumber()
   profile_id: number;
 }
