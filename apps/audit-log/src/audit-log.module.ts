@@ -10,11 +10,11 @@ import "dotenv/config";
   imports: [
     TypeOrmModule.forRoot({
       type: "postgres",
-      host: process.env.MYSQL_HOST,
-      port: Number(process.env.MYSQL_LOCAL_PORT),
-      username: process.env.MYSQL_USERNAME,
-      password: process.env.MYSQL_PASSWORD,
-      database: process.env.MYSQL_DATABASE,
+      host: process.env.PG_HOST,
+      port: Number(process.env.PG_LOCAL_PORT),
+      username: process.env.PG_USERNAME,
+      password: process.env.PG_PASSWORD,
+      database: process.env.PG_DATABASE,
       entities: [AccessLogEntity],
       synchronize: true,
       migrations: [],
