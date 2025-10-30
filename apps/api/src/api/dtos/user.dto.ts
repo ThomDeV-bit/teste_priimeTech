@@ -25,7 +25,7 @@ export class UserDto {
 
   @ApiProperty({
     description: "Perfil do usuário",
-    example: "Admin = 1, User = 2",
+    example: "1",
     type: Number,
   })
   profile_id: number;
