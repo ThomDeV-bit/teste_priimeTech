@@ -29,11 +29,6 @@ docker network create --driver bridge internal_network
 docker-compose up -d
 ```
 
-### rodar as migrations
-
-```bash
-docker-compose exec app npx typeorm-ts-node-commonjs migration:run -d src/infrastructure/database/config/database.config.ts
-```
 ### rodar os testes
 
 ```bash
@@ -90,9 +85,6 @@ docker-compose build --no-cache
 
 * Certifique-se de que as portas definidas no `.env` e `docker-compose.yml` não estejam em conflito com outros serviços.
 
-## Diagrama de Arquitetura:
-
-
 ## Escalabiilidade:
 
 Multi-Tenant
@@ -104,7 +96,7 @@ Multi-Tenant
 
 Cache com Redis
 
-* Armazena URLs encurtadas e aliases
+* Armazena tokens ou id de usuarios authenticados por tempo limitado
 
 * Reduz consultas ao banco
 
