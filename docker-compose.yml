@@ -1,0 +1,65 @@
+services:
+    priimeTechdb:
+        image: postgres:latest
+        container_name: priimeTech_db
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${PG_DATABASE}
+            POSTGRES_USER: ${PG_USERNAME}
+            POSTGRES_PASSWORD: ${PG_PASSWORD}
+        ports:
+            - "${PG_EXTERNAL_PORT}:${PG_LOCAL_PORT}"
+        expose:
+            - "${PG_LOCAL_PORT}"
+        networks:
+            - internal_network
+        volumes:
+            - postgres_data:/var/lib/postgres
+
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        restart: unless-stopped
+        environment:
+            RABBITMQ_DEFAULT_USER: ${RMQ_USERNAME}
+            RABBITMQ_DEFAULT_PASS: ${RMQ_PASSWORD}
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        expose:
+            - "5672"
+            - "15672"
+        networks:
+            - internal_network
+        volumes:
+            - rabbitmq_data:/var/lib/rabbitmq
+    app:
+        depends_on:
+            - priimeTechdb
+            - rabbitmq
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            PG_HOST: priimeTechdb
+            PG_LOCAL_PORT: ${PG_LOCAL_PORT}
+            PG_DATABASE: ${PG_DATABASE}
+            PG_USERNAME: ${PG_USERNAME}
+            PG_PASSWORD: ${PG_PASSWORD}
+        networks:
+            - internal_network
+        container_name: priimeTech_teste
+        restart: unless-stopped
+        ports:
+            - "3000:3000"
+        expose:
+            - 3000
+
+networks:
+    internal_network:
+        external: true
+        name: internal_network
+        driver: bridge
+volumes:
+    rabbitmq_data:
+    postgres_data:
